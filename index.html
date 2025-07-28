@@ -11,10 +11,7 @@
       color: white;
       font-family: Arial, sans-serif;
       text-align: center;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      height: 100vh;
+      overflow: hidden;
     }
 
     h1 {
@@ -22,6 +19,7 @@
       background: linear-gradient(to bottom, #fff, #999);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
+      margin-top: 15vh;
       margin-bottom: 10px;
     }
 
@@ -62,10 +60,15 @@
       color: black;
     }
 
-    .bomb {
-      width: 40px;
-      height: 40px;
-      margin: 0 auto;
+    video {
+      position: fixed;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 100px;
+      height: auto;
+      opacity: 0.7;
+      z-index: -1;
     }
   </style>
 </head>
@@ -79,6 +82,8 @@
     <a href="https://x.com" class="x">X</a>
   </div>
 
-  <img class="bomb" src="bomb.mp4" alt="bomb animation">
+  <video autoplay loop muted playsinline>
+    <source src="https://raw.githubusercontent.com/nothing010101/boom/main/bomb.mp4" type="video/mp4">
+  </video>
 </body>
 </html>
