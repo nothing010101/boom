@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>BOOMB</title>
   <style>
     * {
@@ -10,62 +10,119 @@
       padding: 0;
       box-sizing: border-box;
     }
+
     body, html {
-      height: 100%;
-      overflow: hidden;
-      font-family: Arial, sans-serif;
+      width: 100%;
+      min-height: 100%;
+      overflow: auto;
+      font-family: 'Segoe UI', sans-serif;
+      color: white;
     }
-    video.bg-video {
+
+    .video-bg {
       position: fixed;
       top: 0;
       left: 0;
-      min-width: 100vw;
-      min-height: 100vh;
+      width: 100vw;
+      height: 100vh;
       object-fit: cover;
       z-index: -1;
     }
-    .content {
+
+    .overlay {
       position: relative;
       z-index: 1;
-      color: white;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
       text-align: center;
-      padding-top: 20vh;
+      padding: 2rem;
+      background: rgba(0, 0, 0, 0.3);
+      backdrop-filter: blur(6px);
     }
-    .button {
-      margin-top: 30px;
-      padding: 12px 24px;
-      font-size: 18px;
+
+    h1 {
+      font-size: 3rem;
+      font-weight: bold;
+      margin-bottom: 0.5rem;
+      text-shadow: 0 0 20px #fff;
+    }
+
+    p {
+      font-size: 1.2rem;
+      margin-bottom: 1.5rem;
+      color: #eee;
+    }
+
+    .buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      justify-content: center;
+    }
+
+    .btn {
+      padding: 0.75rem 1.5rem;
       border: none;
-      border-radius: 10px;
-      background: #00ffcc;
+      border-radius: 999px;
+      background: #00f6d2;
       color: #000;
+      font-weight: bold;
       cursor: pointer;
+      transition: all 0.3s ease;
+      text-decoration: none;
     }
+
+    .btn:hover {
+      background: #03dac5;
+      transform: scale(1.05);
+      box-shadow: 0 0 10px #00f6d2;
+    }
+
+    .dex-container {
+      width: 100%;
+      padding: 2rem;
+      background: rgba(0, 0, 0, 0.6);
+      backdrop-filter: blur(4px);
+      display: flex;
+      justify-content: center;
+      flex-direction: column;
+      align-items: center;
+    }
+
     iframe {
-      margin-top: 40px;
-      width: 90%;
-      height: 500px;
+      width: 95%;
+      max-width: 1200px;
+      height: 600px;
       border: none;
-      border-radius: 20px;
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 0 20px rgba(0, 255, 200, 0.4);
     }
   </style>
 </head>
 <body>
-  <!-- ✅ Background Video -->
-  <video class="bg-video" autoplay muted loop playsinline>
+  <!-- VIDEO BACKGROUND -->
+  <video autoplay loop muted playsinline preload="auto" class="video-bg">
     <source src="bomb.mp4" type="video/mp4" />
   </video>
 
-  <!-- ✅ Konten utama -->
-  <div class="content">
+  <!-- HERO SECTION -->
+  <div class="overlay">
     <h1>BOOMB</h1>
     <p>the memecoin on BASE.</p>
-    <a href="https://t.me/boombtoken" target="_blank">
-      <button class="button">Join Telegram</button>
-    </a>
-    
-    <!-- ✅ Embed Dexscreener -->
-    <iframe src="https://dexscreener.com/base" allowfullscreen></iframe>
+    <div class="buttons">
+      <a href="https://t.me" class="btn">Join Telegram</a>
+      <a href="https://ape.store" class="btn">Buy</a>
+      <a href="https://x.com/Based_BOOMB" class="btn">X</a>
+    </div>
+  </div>
+
+  <!-- DEXSCREENER EMBED -->
+  <div class="dex-container">
+    <iframe src="https://dexscreener.com/base" loading="lazy"></iframe>
   </div>
 </body>
 </html>
