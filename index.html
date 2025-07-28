@@ -1,123 +1,85 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>BOOMB</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <style>
-    * {
+    body, html {
       margin: 0;
       padding: 0;
-      box-sizing: border-box;
-    }
-
-    body, html {
       height: 100%;
-      font-family: Arial, sans-serif;
       overflow-x: hidden;
-      background-color: black;
+      background: black;
+      font-family: Arial, sans-serif;
     }
 
     .video-bg {
       position: fixed;
       top: 0;
       left: 0;
-      width: 100%;
-      height: 100%;
+      min-width: 100%;
+      min-height: 100%;
       object-fit: cover;
       z-index: -1;
     }
 
     .content {
       position: relative;
-      z-index: 2;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      height: 100vh;
+      z-index: 1;
       color: white;
-      background: rgba(0, 0, 0, 0.5);
-    }
-
-    h1 {
-      font-size: 5rem;
-      background: linear-gradient(to bottom, #fff, #999);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-    }
-
-    p {
-      margin-top: 10px;
-      margin-bottom: 40px;
-      font-size: 1rem;
-      color: #ccc;
-    }
-
-    .buttons {
-      display: flex;
-      gap: 10px;
-      flex-wrap: wrap;
+      text-align: center;
+      padding-top: 20vh;
     }
 
     .buttons a {
+      margin: 0 10px;
+      padding: 10px 20px;
+      background: #00ffcc;
+      color: black;
       text-decoration: none;
-      padding: 12px 24px;
-      font-weight: bold;
       border-radius: 5px;
-      font-size: 1rem;
-    }
-
-    .tele {
-      background-color: white;
-      color: black;
-    }
-
-    .buy {
-      background-color: red;
-      color: white;
-    }
-
-    .x {
-      background-color: white;
-      color: black;
+      font-weight: bold;
     }
 
     .dex-frame {
       position: relative;
-      z-index: 3;
-      background: black;
-      padding: 20px;
+      z-index: 1;
+      margin: 40px auto;
+      width: 90%;
+      max-width: 1000px;
+    }
+
+    iframe {
+      width: 100%;
+      height: 500px;
+      border: none;
     }
   </style>
 </head>
 <body>
 
+  <!-- Background Video -->
   <video class="video-bg" autoplay loop muted playsinline>
     <source src="bomb.mp4" type="video/mp4">
   </video>
 
+  <!-- Main Content -->
   <div class="content">
     <h1>BOOMB</h1>
     <p>The next big memecoin on BASE. Fast, fun, and ready to explode.</p>
-    <p> CA 0XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX </p>
+    <p>CA: 0xXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX</p>
+
     <div class="buttons">
-      <a href="https://t.me/basedboomb" class="tele" target="_blank">Tele</a>
-      <a href="https://ape.store" class="buy">Buy</a>
-      <a href="https://x.com/Based_BOOMB" class="x">X</a>
+      <a href="https://t.me/basedboomb" target="_blank" class="tele">Telegram</a>
+      <a href="https://ape.store" target="_blank" class="buy">Buy</a>
+      <a href="https://x.com/Based_BOOMB" target="_blank" class="x">X</a>
     </div>
   </div>
 
+  <!-- Dexscreener Embed -->
   <div class="dex-frame">
-    <iframe 
-      src="https://dexscreener.com/base" 
-      width="100%" 
-      height="500" 
-      frameborder="0" 
-      allowfullscreen
-      style="border: none;">
-    </iframe>
+    <iframe src="https://dexscreener.com/base" allowfullscreen></iframe>
   </div>
 
 </body>
